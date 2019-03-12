@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 
-export default () => (
+export default props => (
   <div>
-    This is Car component (is function)
-    <p>{Math.random()}</p>
+    <h3>Car name is {props.name}</h3>
+    <p>
+      <strong>Year: {props.year}</strong>
+    </p>
   </div>
 );
