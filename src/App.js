@@ -16,6 +16,7 @@ class App extends Component {
           vxfg2 fhkdgh <p> ghfkg </p>{" "}
         </div>{" "}
         <Car />
+        <Car />
       </div>
     );
   }
