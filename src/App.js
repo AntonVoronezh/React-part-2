@@ -12,7 +12,12 @@ class App extends Component {
     title: "React Component"
   };
 
+  changeTitleHandler = (argTitle) => {
 
+    this.setState({
+      title: argTitle
+    })
+  }
 
 
 }
