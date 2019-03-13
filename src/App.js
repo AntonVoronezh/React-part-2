@@ -12,7 +12,25 @@ class App extends Component {
     title: "React Component"
   };
 
+  changeTitleHandler = () => {
+    console.log("changeTitleHandler");
+  };
 
+  render() {
+    const cars = this.state.car;
+
+    return (
+      <div className="App">
+        <h2>{this.state.title}</h2>
+
+        <button onClick={this.changeTitleHandler}>change title</button>
+
+        <Car name={cars[0].name} year={cars[0].year} />
+        <Car name={cars[1].name} year={cars[1].year} />
+        <Car name={cars[2].name} year={cars[2].year} />
+      </div>
+    );
+  }
 }
 
 export default App;
