@@ -15,7 +15,11 @@ class App extends Component {
   changeTitleHandler = () => {
     const oldTitle = this.state.title;
 
+    const newTitle = oldTitle + " (changed)";
 
+    this.setState({
+      title: newTitle
+    });
   };
 
 
