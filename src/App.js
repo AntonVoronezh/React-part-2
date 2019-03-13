@@ -28,7 +28,9 @@ class App extends Component {
 
         <button onClick={this.changeTitleHandler.bind(this, 'changed!')}>change title</button>
 
-
+        <Car onChangeTitle={this.changeTitleHandler.bind(this, cars[0].name)} name={cars[0].name} year={cars[0].year} />
+        <Car onChangeTitle={() => this.changeTitleHandler(cars[1].name)} name={cars[1].name} year={cars[1].year} />
+        <Car name={cars[2].name} year={cars[2].year} />
       </div>
     );
   }
