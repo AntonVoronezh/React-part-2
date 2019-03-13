@@ -24,7 +24,12 @@ class App extends Component {
 
     return (
       <div className="App">
+        <h2>{this.state.title}</h2>
 
+        <button onClick={this.changeTitleHandler.bind(this, 'changed!')}>change title</button>
+
+
+      </div>
     );
   }
 }
