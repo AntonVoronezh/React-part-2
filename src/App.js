@@ -12,6 +12,12 @@ class App extends Component {
     title: "React Component"
   };
 
+  changeTitleHandler = () => {
+    const oldTitle = this.state.title;
+
+
+  };
+
 
 }
 
