@@ -9,35 +9,35 @@ class App extends Component {
       { name: "Audi", year: 2011 },
       { name: "Vaz", year: 2012 }
     ],
-    title: "React Component"
+    title: "React Component",
+    showCars: false
   };
 
-  changeTitleHandler = (argTitle) => {
+  changeTitleHandler = (title) => {
 
     this.setState({
-      title: argTitle
+      title
     })
   }
 
-  handleInput(event) {
+  toggleCarsHandler = () => {
+
     this.setState({
-      title: event.target.value
+      showCars: !this.state.showCars
     })
   }
+
 
   render() {
 
     return (
       <div className="App">
         <h2>{this.state.title}</h2>
-        
 
-        <input type="text" onChange={this.handleInput.bind(this)} />
+        <button onClick={this.toggleCarsHandler}>toggle cars</button>
 
-        <button onClick={this.changeTitleHandler.bind(this, 'changed!')}>change title</button>
-
-        {
-          this.state.car.map((elem, i) => {
+        { this.state.showCars 
+          ? this.state.car.map((elem, i) => {
             return (<Car 
                     key={i}
                     name={elem.name}
@@ -46,6 +46,7 @@ class App extends Component {
             />
             )
           })
+          : null
         }
 
 
