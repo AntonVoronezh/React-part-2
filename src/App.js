@@ -12,9 +12,12 @@ class App extends Component {
     title: "React Component"
   };
 
-  changeTitleHandler = () => {
-    console.log("changeTitleHandler");
-  };
+  changeTitleHandler = (argTitle) => {
+
+    this.setState({
+      title: argTitle
+    })
+  }
 
   render() {
     const cars = this.state.car;
@@ -23,10 +26,10 @@ class App extends Component {
       <div className="App">
         <h2>{this.state.title}</h2>
 
-        <button onClick={this.changeTitleHandler}>change title</button>
+        <button onClick={this.changeTitleHandler.bind(this, 'changed!')}>change title</button>
 
-        <Car name={cars[0].name} year={cars[0].year} />
-        <Car name={cars[1].name} year={cars[1].year} />
+        <Car onChangeTitle={this.changeTitleHandler.bind(this, cars[0].name)} name={cars[0].name} year={cars[0].year} />
+        <Car onChangeTitle={() => this.changeTitleHandler(cars[1].name)} name={cars[1].name} year={cars[1].year} />
         <Car name={cars[2].name} year={cars[2].year} />
       </div>
     );
