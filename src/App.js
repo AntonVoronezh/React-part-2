@@ -26,19 +26,29 @@ class App extends Component {
   }
 
   render() {
-    const cars = this.state.car;
 
     return (
       <div className="App">
         <h2>{this.state.title}</h2>
+        
 
         <input type="text" onChange={this.handleInput.bind(this)} />
 
         <button onClick={this.changeTitleHandler.bind(this, 'changed!')}>change title</button>
 
-        <Car onChangeTitle={this.changeTitleHandler.bind(this, cars[0].name)} name={cars[0].name} year={cars[0].year} />
-        <Car onChangeTitle={() => this.changeTitleHandler(cars[1].name)} name={cars[1].name} year={cars[1].year} />
-        <Car name={cars[2].name} year={cars[2].year} />
+        {
+          this.state.car.map((elem, i) => {
+            return (<Car 
+                    key={i}
+                    name={elem.name}
+                    year={elem.year}
+                    onChangeTitle={() => this.changeTitleHandler(elem.name)}
+            />
+            )
+          })
+        }
+
+
       </div>
     );
   }
