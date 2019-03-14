@@ -24,6 +24,7 @@ export default props => {
         type="text"
         onChange={props.onChangeName}
         value={props.name}
+        className={inputClasses.join(" ")}
       />
       <button onClick={props.onDelete}>Click</button>
     </div>
