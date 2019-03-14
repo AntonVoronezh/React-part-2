@@ -13,43 +13,32 @@ class App extends Component {
     showCars: false
   };
 
-  changeTitleHandler = (title) => {
-
-    this.setState({
-      title
-    })
-  }
 
   toggleCarsHandler = () => {
-
     this.setState({
       showCars: !this.state.showCars
-    })
-  }
+    });
+  };
 
 
   render() {
-
     return (
       <div className="App">
         <h2>{this.state.title}</h2>
 
         <button onClick={this.toggleCarsHandler}>toggle cars</button>
 
-        { this.state.showCars 
+        {this.state.showCars
           ? this.state.car.map((elem, i) => {
-            return (<Car 
-                    key={i}
-                    name={elem.name}
-                    year={elem.year}
-                    onChangeTitle={() => this.changeTitleHandler(elem.name)}
-            />
-            )
-          })
-          : null
-        }
-
-
+              return (
+                <Car
+                  key={i}
+                  name={elem.name}
+                  year={elem.year}
+                />
+              );
+            })
+          : null}
       </div>
     );
   }
