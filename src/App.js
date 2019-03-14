@@ -13,43 +13,49 @@ class App extends Component {
     showCars: false
   };
 
-  changeTitleHandler = (title) => {
-
-    this.setState({
-      title
-    })
-  }
+  onChangeName = (argName, argIndex) => {
+    // console.log(name, index)
+    const car = this.state.car[argIndex];
+    car.name = argName;
+    const cars = [...this.state.car];
+    cars[argIndex] = car;
+    this.setState({car:cars});
+  };
 
   toggleCarsHandler = () => {
-
     this.setState({
       showCars: !this.state.showCars
-    })
+    });
+  };
+
+  deleteHandler = argIndex => {
+    const cars = this.state.car.concat();
+    cars.splice(argIndex, 1);
+    this.setState({car:cars});
   }
 
-
   render() {
-
     return (
       <div className="App">
         <h2>{this.state.title}</h2>
 
         <button onClick={this.toggleCarsHandler}>toggle cars</button>
 
-        { this.state.showCars 
+        {this.state.showCars
           ? this.state.car.map((elem, i) => {
-            return (<Car 
-                    key={i}
-                    name={elem.name}
-                    year={elem.year}
-                    onChangeTitle={() => this.changeTitleHandler(elem.name)}
-            />
-            )
-          })
-          : null
-        }
-
-
+              return (
+                <Car
+                  key={i}
+                  name={elem.name}
+                  year={elem.year}
+                  onDelete={this.deleteHandler.bind(this, i)}
+                  onChangeName={event =>
+                    this.onChangeName(event.target.value, i)
+                  }
+                />
+              );
+            })
+          : null}
       </div>
     );
   }
