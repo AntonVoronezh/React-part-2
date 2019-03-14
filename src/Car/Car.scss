@@ -7,12 +7,18 @@
     transition: border, box-shadow 0.5s;
 }
 
-.input {}
+.input {
 
-.input:focus,
-.input:active {
-    outline: none;
+    &:focus,
+    &:active {
+        outline: none;
+    }
 }
+
+// .input:focus,
+// .input:active {
+//     outline: none;
+// }
 
 .input.red {
     border: 1px solid red;
