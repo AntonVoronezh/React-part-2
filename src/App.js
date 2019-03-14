@@ -43,6 +43,9 @@ class App extends Component {
                   key={i}
                   name={elem.name}
                   year={elem.year}
+                  onChangeName={event =>
+                    this.onChangeName(event.target.value, i)
+                  }
                 />
               );
             })
