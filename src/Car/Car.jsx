@@ -4,6 +4,11 @@ import "./Car.css";
 export default props => {
   const inputClasses = ["input"];
 
+  if (props.name !== "") {
+    inputClasses.push("green");
+  } else {
+    inputClasses.push("red");
+  }
 
 
   return (
