@@ -28,6 +28,11 @@ class App extends Component {
     });
   };
 
+  deleteHandler = argIndex => {
+    const cars = this.state.car.concat();
+    cars.splice(argIndex, 1);
+    this.setState({car:cars});
+  }
 
   render() {
     return (
