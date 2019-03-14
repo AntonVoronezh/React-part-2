@@ -13,6 +13,14 @@ class App extends Component {
     showCars: false
   };
 
+  onChangeName = (argName, argIndex) => {
+    // console.log(name, index)
+    const car = this.state.car[argIndex];
+    car.name = argName;
+    const cars = [...this.state.car];
+    cars[argIndex] = car;
+    this.setState({car:cars});
+  };
 
   toggleCarsHandler = () => {
     this.setState({
