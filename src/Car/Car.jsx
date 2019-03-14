@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./Car.css";
+import Radium from "radium";
 
-export default props => {
+const Car = props => {
   const inputClasses = ["input"];
 
   if (props.name !== "") {
@@ -14,8 +15,10 @@ export default props => {
     inputClasses.push("bold");
   }
 
+
+
   return (
-    <div className="Car">
+    <div className="Car" style={style}>
       <h3>Car name is {props.name}</h3>
       <p>
         <strong>Year: {props.year}</strong>
@@ -26,7 +29,9 @@ export default props => {
         value={props.name}
         className={inputClasses.join(" ")}
       />
-      <button onClick={props.onDelete}>Click</button>
+      <button onClick={props.onDelete}>delete</button>
     </div>
   );
 };
+
+export default Radium(Car);
