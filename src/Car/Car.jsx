@@ -10,6 +10,9 @@ export default props => {
     inputClasses.push("red");
   }
 
+  if (props.name.length > 5) {
+    inputClasses.push("bold");
+  }
 
   return (
     <div className="Car">
