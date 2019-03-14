@@ -48,6 +48,7 @@ class App extends Component {
                   key={i}
                   name={elem.name}
                   year={elem.year}
+                  onDelete={this.deleteHandler.bind(this, i)}
                   onChangeName={event =>
                     this.onChangeName(event.target.value, i)
                   }
