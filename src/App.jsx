@@ -4,6 +4,7 @@ import Car from "./Car/Car.jsx";
 
 class App extends Component {
   constructor(props) {
+    console.log('App constructor')
     super(props);
     this.state = {
       car: [
@@ -36,7 +37,16 @@ class App extends Component {
     this.setState({ car: cars });
   };
 
+  componentWillMount() {
+    console.log('App componentWillMount')
+  }
+
+  componentDidMount() {
+    console.log('App componentDidMount')
+  }
+  
   render() {
+    console.log('App render')
     const cars = this.state.showCars
       ? this.state.car.map((elem, i) => {
           return (
