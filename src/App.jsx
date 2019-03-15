@@ -3,15 +3,18 @@ import "./App.css";
 import Car from "./Car/Car.jsx";
 
 class App extends Component {
-  state = {
-    car: [
-      { name: "Ford", year: 2010 },
-      { name: "Audi", year: 2011 },
-      { name: "Vaz", year: 2012 }
-    ],
-    title: "React Component",
-    showCars: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      car: [
+        { name: "Ford", year: 2010 },
+        { name: "Audi", year: 2011 },
+        { name: "Vaz", year: 2012 }
+      ],
+      title: "React Component",
+      showCars: false
+    };
+  }
 
   onChangeName = (argName, argIndex) => {
     const car = this.state.car[argIndex];
@@ -53,11 +56,15 @@ class App extends Component {
         {/* <h2>{this.state.title}</h2> */}
         <h2>{this.props.title}</h2>
         <button onClick={this.toggleCarsHandler}>toggle cars</button>
-        <div style={{
-          width:400,
-          margin: 'auto',
-          paddingTop: '20px'
-        }}>{cars}</div>
+        <div
+          style={{
+            width: 400,
+            margin: "auto",
+            paddingTop: "20px"
+          }}
+        >
+          {cars}
+        </div>
       </div>
     );
   }
