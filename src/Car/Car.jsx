@@ -1,17 +1,38 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Car.scss";
-import Radium from "radium";
+// import Radium from "radium";
 
-const Car = props => {
-  const inputClasses = ["input"];
+class Car extends React.Component {
 
-  if (props.name !== "") {
+  componentWillReceiveProps(nextProps){
+    console.log('Car componentWillReceiveProps', nextProps)
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('Car shouldComponentUpdate', nextProps, nextState)
+    return nextProps.name.trim() !== this.props.name.trim();
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    console.log('Car componentWillUpdate', nextProps, nextState)
+  }
+
+  componentDidUpdate() {
+    console.log('Car componentDidUpdate')
+  }
+
+  render() {
+    console.log('Car render')
+
+    const inputClasses = ["input"];
+
+  if (this.props.name !== "") {
     inputClasses.push("green");
   } else {
     inputClasses.push("red");
   }
 
-  if (props.name.length > 5) {
+  if (this.props.name.length > 5) {
     inputClasses.push("bold");
   }
 
@@ -27,19 +48,22 @@ const Car = props => {
 
   return (
     <div className="Car" style={style}>
-      <h3>Car name is {props.name}</h3>
+      <h3>Car name is {this.props.name}</h3>
       <p>
-        <strong>Year: {props.year}</strong>
+        <strong>Year: {this.props.year}</strong>
       </p>
       <input
         type="text"
-        onChange={props.onChangeName}
-        value={props.name}
+        onChange={this.props.onChangeName}
+        value={this.props.name}
         className={inputClasses.join(" ")}
       />
-      <button onClick={props.onDelete}>delete</button>
+      <button onClick={this.props.onDelete}>delete</button>
     </div>
-  );
+  ); 
+  }
+ 
 };
 
-export default Radium(Car);
+// export default Radium(Car);
+export default Car;
