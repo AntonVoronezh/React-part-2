@@ -51,15 +51,14 @@ class App extends Component {
     const cars = this.state.showCars
       ? this.state.car.map((elem, i) => {
           return (
-           
+            <ErrorBoundary key={i}>
               <Car
-                
                 name={elem.name}
                 year={elem.year}
                 onDelete={this.deleteHandler.bind(this, i)}
                 onChangeName={event => this.onChangeName(event.target.value, i)}
               />
-          
+            </ErrorBoundary>
           );
         })
       : null;
