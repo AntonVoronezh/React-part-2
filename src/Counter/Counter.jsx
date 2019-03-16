@@ -5,6 +5,11 @@ export default class ErrorBoundary extends Component {
     counter: 0
   };
 
+  addCounter = () => {
+      this.setState({
+        counter: this.state.counter + 1
+      })
+  };
 
   render() {
     // return (
