@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
 import Car from "./Car/Car.jsx";
+import ErrorBoundary from "./ErrorBoundary/ErrorBoundary.jsx";
+import Counter from "./Counter/Counter.jsx";
 
 class App extends Component {
   constructor(props) {
-    console.log('App constructor')
+    console.log("App constructor");
     super(props);
     this.state = {
       car: [
@@ -38,25 +40,26 @@ class App extends Component {
   };
 
   componentWillMount() {
-    console.log('App componentWillMount')
+    console.log("App componentWillMount");
   }
 
   componentDidMount() {
-    console.log('App componentDidMount')
+    console.log("App componentDidMount");
   }
-  
+
   render() {
-    console.log('App render')
+    console.log("App render");
     const cars = this.state.showCars
       ? this.state.car.map((elem, i) => {
           return (
-            <Car
-              key={i}
-              name={elem.name}
-              year={elem.year}
-              onDelete={this.deleteHandler.bind(this, i)}
-              onChangeName={event => this.onChangeName(event.target.value, i)}
-            />
+            <ErrorBoundary key={i}>
+              <Car
+                name={elem.name}
+                year={elem.year}
+                onDelete={this.deleteHandler.bind(this, i)}
+                onChangeName={event => this.onChangeName(event.target.value, i)}
+              />
+            </ErrorBoundary>
           );
         })
       : null;
@@ -64,8 +67,10 @@ class App extends Component {
     return (
       <div className="App">
         {/* <h2>{this.state.title}</h2> */}
-        <h2>{this.props.title}</h2>
-        <button onClick={this.toggleCarsHandler}>toggle cars</button>
+        <h1>{this.props.title}</h1>
+        <Counter />
+        <hr/>
+        <button style={{marginTop:'30px'}} onClick={this.toggleCarsHandler} >toggle cars</button>
         <div
           style={{
             width: 400,
