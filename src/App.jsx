@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 import "./App.css";
 import Car from "./Car/Car.jsx";
+import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 
 class App extends Component {
   constructor(props) {
-    console.log('App constructor')
+    console.log("App constructor");
     super(props);
     this.state = {
       car: [
         { name: "Ford", year: 2010 },
-        // { name: "Audi", year: 2011 },
-        // { name: "Vaz", year: 2012 }
+        { name: "Audi", year: 2011 },
+        { name: "Vaz", year: 2012 }
       ],
       title: "React Component",
       showCars: false
@@ -38,25 +39,27 @@ class App extends Component {
   };
 
   componentWillMount() {
-    console.log('App componentWillMount')
+    console.log("App componentWillMount");
   }
 
   componentDidMount() {
-    console.log('App componentDidMount')
+    console.log("App componentDidMount");
   }
-  
+
   render() {
-    console.log('App render')
+    console.log("App render");
     const cars = this.state.showCars
       ? this.state.car.map((elem, i) => {
           return (
-            <Car
-              key={i}
-              name={elem.name}
-              year={elem.year}
-              onDelete={this.deleteHandler.bind(this, i)}
-              onChangeName={event => this.onChangeName(event.target.value, i)}
-            />
+           
+              <Car
+                
+                name={elem.name}
+                year={elem.year}
+                onDelete={this.deleteHandler.bind(this, i)}
+                onChangeName={event => this.onChangeName(event.target.value, i)}
+              />
+          
           );
         })
       : null;
