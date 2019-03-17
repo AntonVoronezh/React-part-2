@@ -1,11 +1,13 @@
 import React from "react";
 
-const withClass = (argComponent, argClass) => {
+const withClass = (Component, argClass) => {
     return props => {
         return (
             <div className={argClass}>
-                <argComponent />
+                <Component {...props} />
             </div>
         )
     }
 }
+
+export default withClass;
