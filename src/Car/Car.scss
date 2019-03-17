@@ -1,10 +1,16 @@
 .Car {
-    /* border: 1px solid #ccc; */
+    border: 1px solid #ccc;
     margin-bottom: 10px;
     padding: 10px;
-    /* box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14); */
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14);
     border-radius: 5px;
     transition: border, box-shadow 0.5s;
+
+    &:hover {
+        border: 1px solid #aaa;
+        box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .34);
+        cursor: pointer;
+    }
 }
 
 .input {

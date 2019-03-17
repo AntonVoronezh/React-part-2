@@ -1,44 +1,10 @@
 import React from "react";
 import "./Car.scss";
-// import Radium from "radium";
 
 class Car extends React.Component {
 
-  componentWillReceiveProps(nextProps){
-    console.log('Car componentWillReceiveProps', nextProps)
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('Car shouldComponentUpdate', nextProps, nextState)
-    return nextProps.name.trim() !== this.props.name.trim();
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    console.log('Car componentWillUpdate', nextProps, nextState)
-  }
-
-  // static getDerivedStateFromProps(nextProps, prevState) {
-  //   console.log('Car getDerivedStateFromProps', nextProps, prevState)
-  // }
-
-  componentDidUpdate() {
-    console.log('Car componentDidUpdate')
-  }
-
-  // getSnapshotBeforeUpdate() {
-  //   console.log('Car getSnapshotBeforeUpdate')
-  // }
-
-  componentWillUnmount() {
-    console.log('Car componentWillUnmount')
-  }
-
   render() {
     console.log('Car render')
-
-    // if( Math.random() > 0.7) {
-    //   throw new Error('Car random failed');
-    // }
 
     const inputClasses = ["input"];
 
@@ -52,18 +18,8 @@ class Car extends React.Component {
     inputClasses.push("bold");
   }
 
-  const style = {
-    border: "1px solid #ccc",
-    boxShadow: "0 4px 5px 0 rgba(0, 0, 0, .14)",
-    ":hover": {
-      border: "1px solid #aaa",
-      boxShadow: "0 4px 10px 0 rgba(0, 0, 0, .34)",
-      cursor:'pointer'
-    }
-  };
-
   return (
-    <div className="Car" style={style}>
+    <div className="Car">
       <h3>Car name is {this.props.name}</h3>
       <p>
         <strong>Year: {this.props.year}</strong>
@@ -81,5 +37,4 @@ class Car extends React.Component {
  
 };
 
-// export default Radium(Car);
 export default Car;
