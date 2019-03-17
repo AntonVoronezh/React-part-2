@@ -4,8 +4,17 @@ import withClass from "../hoc/withClass.jsx";
 import PropTypes from "prop-types";
 
 class Car extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.inputRef = React.createRef();
+  }
+
   componentDidMount() {
-    this.inputRef.focus();
+    if(this.props.index === 1) {
+         this.inputRef.current.focus();
+    }
+ 
   }
 
   render() {
@@ -31,7 +40,7 @@ class Car extends React.Component {
         </p>
         <input
           type="text"
-          ref={inputRef => this.inputRef = inputRef}
+          ref={this.inputRef}
           onChange={this.props.onChangeName}
           value={this.props.name}
           className={inputClasses.join(" ")}

@@ -54,6 +54,7 @@ class App extends Component {
           return (
             <ErrorBoundary key={i}>
               <Car
+                index={i}
                 name={elem.name}
                 year={elem.year}
                 onDelete={this.deleteHandler.bind(this, i)}
@@ -69,8 +70,10 @@ class App extends Component {
         {/* <h2>{this.state.title}</h2> */}
         <h1>{this.props.title}</h1>
         <Counter />
-        <hr/>
-        <button style={{marginTop:'30px'}} onClick={this.toggleCarsHandler} >toggle cars</button>
+        <hr />
+        <button style={{ marginTop: "30px" }} onClick={this.toggleCarsHandler}>
+          toggle cars
+        </button>
         <div
           style={{
             width: 400,
