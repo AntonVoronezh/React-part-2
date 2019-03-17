@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Auxiliary from '../hoc/Auxiliary.jsx'
+import Counter2 from '../Counter2/Counter2.jsx'
 
 export default class ErrorBoundary extends Component {
   state = {
@@ -7,9 +8,14 @@ export default class ErrorBoundary extends Component {
   };
 
   addCounter = () => {
-      this.setState({
-        counter: this.state.counter + 1
-      })
+      // this.setState({
+      //   counter: this.state.counter + 1
+      // })
+      this.setState(prevState => {
+        return {
+          counter: prevState.counter + 1
+        }
+      });
   };
 
   render() {
@@ -17,6 +23,7 @@ export default class ErrorBoundary extends Component {
       // <React.Fragment>
       <Auxiliary>
         <h2>Counter {this.state.counter}</h2>
+        <Counter2 />
         <button onClick={this.addCounter}>+</button>
         <button onClick={()=> this.setState({counter: this.state.counter - 1})}>-</button>
       </Auxiliary>
